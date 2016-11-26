@@ -13,6 +13,16 @@ public class Good {
     public int salerId;
     public  String picResUrl;
     public  String extraMessage;
+
+    public String getGoodName() {
+        return goodName;
+    }
+
+    public void setGoodName(String goodName) {
+        this.goodName = goodName;
+    }
+
+    public String goodName;
     public boolean saleOut;
 
     public boolean isSaleOut() {
