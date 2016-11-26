@@ -13,6 +13,17 @@ public class Good {
     public int salerId;
     public  String picResUrl;
     public  String extraMessage;
+    public boolean saleOut;
+
+    public boolean isSaleOut() {
+        return saleOut;
+    }
+
+    public void setSaleOut(boolean saleOut) {
+        this.saleOut = saleOut;
+    }
+
+
     public static int getCurrentMaxId() {
         return currentMaxId;
     }
