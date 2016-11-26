@@ -1,5 +1,7 @@
 package com.example.n404.myapplication_luo_2.SModel;
 
+import java.util.Date;
+
 /**
  * Created by luo on 16-11-26.
  */
@@ -10,6 +12,15 @@ public class Communicate {
     public  int listenerId;
     public  String conntent;
 
+    public Date getDate() {
+        return date;
+    }
+
+    public void setDate(Date date) {
+        this.date = date;
+    }
+
+    public Date date;
     public String getConntent() {
         return conntent;
     }
