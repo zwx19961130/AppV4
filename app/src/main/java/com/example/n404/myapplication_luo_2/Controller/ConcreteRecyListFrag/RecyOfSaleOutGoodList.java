@@ -20,7 +20,7 @@ import com.example.n404.myapplication_luo_2.SModel.Purchase;
  */
 
 public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
-   //region layoutRes
+    //region layoutRes
     @Override
     public RecyclerView.Adapter getAdapter() {
         return new SaleOutGoodAdapter();
@@ -39,7 +39,6 @@ public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
         return R.layout.item_goodlist_layout;
     }
     //endregion layoutRes
-
     //region viewholer
     private class SaleOutGoodViewHolder extends  RecyclerView.ViewHolder{
         private ProgressBar pbNum;
@@ -89,7 +88,6 @@ public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
 
     }
     //endregion viewholder
-
     //region adpater
     private class  SaleOutGoodAdapter extends  RecyclerView.Adapter<SaleOutGoodViewHolder>{
         @Override
@@ -144,4 +142,4 @@ public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
 
     }
 }
-    //endregion Atoolclass
+    //endregion

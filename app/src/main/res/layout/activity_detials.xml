@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:layout_marginTop="48dp"
+        android:layout_width="match_parent"
+        android:layout_height="286dp"
+        app:srcCompat="@drawable/macpro_pic"
+        android:id="@+id/image_detial_acvt_id" />
+
+    <TextView
+        android:text="TextView"
+        android:layout_width="354dp"
+        android:layout_height="135dp"
+        android:id="@+id/tv_good_detials"
+
+        />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/frame_cont_for_purc_id"
+        android:layout_marginTop="300dp"
+
+        >
+
+
+    </FrameLayout>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="58dp"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        app:fabSize="mini"
+        app:srcCompat="@android:drawable/ic_input_add"
+        android:id="@+id/detail_avt_flot_btn_id"
+        android:layout_gravity="bottom|center_horizontal"
+
+        app:layout_anchor="@+id/image_detial_acvt_id"
+        app:layout_anchorGravity="bottom|right" />
+
+</android.support.design.widget.CoordinatorLayout>
