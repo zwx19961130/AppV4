@@ -8,6 +8,7 @@ import android.widget.ImageView;
 import android.widget.ProgressBar;
 
 import com.example.n404.myapplication_luo_2.CModel.ClientGood;
+import com.example.n404.myapplication_luo_2.CModel.ClientPurchase;
 import com.example.n404.myapplication_luo_2.Controller.RecyListFragForExtends;
 import com.example.n404.myapplication_luo_2.GLoabalTools.GLobalNotLinerVauleCacul;
 import com.example.n404.myapplication_luo_2.GLoabalTools.GlobalClientGoodList;
@@ -117,17 +118,17 @@ public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
     //endregion adapter
     //下面这个类是一个工具类，用来计算一个商品的竞价信息，得到并返回三个重要的参数，参与者人数，最高价，最低价
 //region Atoolclass
-    protected class GetThreeEsentialMessage{
+    private class GetThreeEsentialMessage{
         private int maxPrice=0;
         private  int minPrice=0;
         private  ClientGood clientGood;
         public GetThreeEsentialMessage(ClientGood clientGood){
             this.clientGood=clientGood;
-            for(Purchase p:clientGood.getPurchaseListToThisGood()){
-                if(p.getPrice()>maxPrice)
-                    maxPrice=p.getPrice();
-                if(p.getPrice()<minPrice)
-                    minPrice=p.getPrice();
+            for(ClientPurchase p:clientGood.getPurchaseListToThisGood()){
+                if(p.getsPurchase().getPrice()>maxPrice)
+                    maxPrice=p.getsPurchase().getPrice();
+                if(p.getsPurchase().getPrice()<minPrice)
+                    minPrice=p.getsPurchase().getPrice();
             }
         }
         public  int getBuyerNum(){

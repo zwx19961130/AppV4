@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class ClientGood {
     private Good good;
-    private ArrayList<Purchase> purchaseListToThisGood;
+    private ArrayList<ClientPurchase> purchaseListToThisGood;
 
 
     public ClientGood(){
@@ -25,13 +25,12 @@ public class ClientGood {
         this.good = good;
     }
 
-    public ArrayList<Purchase> getPurchaseListToThisGood() {
+    public ArrayList<ClientPurchase> getPurchaseListToThisGood() {
         return purchaseListToThisGood;
     }
 
-    public void setPurchaseListToThisGood(ArrayList<Purchase> purchaseListToThisGood) {
+    public void setPurchaseListToThisGood(ArrayList<ClientPurchase> purchaseListToThisGood) {
         this.purchaseListToThisGood = purchaseListToThisGood;
     }
-
 
 }
