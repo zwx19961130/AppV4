@@ -19,7 +19,7 @@ import com.example.n404.myapplication_luo_2.SModel.User;
  * Created by luo on 16-11-26.
  * 这个碎片需要完成提供竞价列表的视图，它需要一个针对某商品的竞价信息列表,这个碎片需要知道当前查看的商品
  */
-public class RecyPurListFrag extends RecyListFragForExtends{
+public abstract class RecyPurListFrag extends RecyListFragForExtends{
     //region res
     @Override
     public RecyclerView.Adapter getAdapter() {
@@ -76,19 +76,16 @@ public class RecyPurListFrag extends RecyListFragForExtends{
 
     }
     //endregion viewholder
+    protected  abstract View.OnClickListener getOnclickLis();
     //region adpater
     private  class PurchaseItemAdapter extends  RecyclerView.Adapter<PurchaseViewHolder>{
+
         private ClientGood currentClientGood= GloabalCurrentGoodSelect.getClientGood();
         //这个地方就是插入跳转逻辑的地方
         @Override
         public PurchaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View v= LayoutInflater.from(getContext()).inflate(getItemLayoutRes(),parent,false);
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //
-                }
-            });
+            v.setOnClickListener(getOnclickLis());
             return new PurchaseViewHolder(v);
         }
 

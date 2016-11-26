@@ -32,4 +32,10 @@ public class ClientOtherUser {
     public void setUser(User user) {
         this.user = user;
     }
+    public String getLastTalk(){
+        if(commuBetHeAndMe.size()>0)
+        return commuBetHeAndMe.get(commuBetHeAndMe.size()-1).getConntent();
+        else
+        return  " ";
+    }
 }

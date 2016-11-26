@@ -117,7 +117,7 @@ public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
     }
     //endregion adapter
     //下面这个类是一个工具类，用来计算一个商品的竞价信息，得到并返回三个重要的参数，参与者人数，最高价，最低价
-//region Atoolclass
+    //region Atoolclass
     private class GetThreeEsentialMessage{
         private int maxPrice=0;
         private  int minPrice=0;
@@ -144,4 +144,4 @@ public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
 
     }
 }
-//endregion Atoolclass
+    //endregion Atoolclass
