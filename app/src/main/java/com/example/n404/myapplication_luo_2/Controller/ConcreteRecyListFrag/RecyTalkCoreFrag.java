@@ -1,6 +1,7 @@
 package com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag;
 
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,8 +22,8 @@ import com.example.n404.myapplication_luo_2.SModel.Communicate;
 
 public class RecyTalkCoreFrag extends RecyListFragForExtends {
     //这两个参数用来告述我们行宽，框架的基础高度
-    public static float TVLEN=30;
-    public static int FRAMEHEIGHT=50;
+    public static float TVLEN=60;
+    public static int FRAMEHEIGHT=200;
     //region layout
     @Override
     public RecyclerView.Adapter getAdapter() {
@@ -82,19 +83,22 @@ public class RecyTalkCoreFrag extends RecyListFragForExtends {
             //拿到了一条对话记录，判断说话方
             if(c.getSpeakerId()== ClientUserDAO.getMe().getPhoneUser().getStuId()){
                 //用户是听者，图片采用左图
-                holder.getBackImg().setImageResource(R.drawable.talk_pop_4_l);
+                holder.getBackImg().setImageResource(R.drawable.talk_pop_5_l);
+
                 //根据长度做伸缩
-                float ScaleRate=c.getConntent().length()/RecyTalkCoreFrag.TVLEN+1;
-                holder.getContainFrame().getLayoutParams().height=(int) (RecyTalkCoreFrag.FRAMEHEIGHT*ScaleRate);
-                holder.getBackImg().setScaleY(ScaleRate);
+               // float ScaleRate=c.getConntent().length()/RecyTalkCoreFrag.TVLEN+1;
+               // holder.getContainFrame().getLayoutParams().height=(int) (RecyTalkCoreFrag.FRAMEHEIGHT*ScaleRate);
+              //  holder.getBackImg().setScaleY(ScaleRate);
 
             }else{
                 //用户是听者，图片采用右图
-                holder.getBackImg().setImageResource(R.drawable.talk_pop_4_r);
+
+                holder.getBackImg().setImageResource(R.drawable.talk_pop_5_r);
+//                holder.getContainFrame();
                 //根据长度做伸缩
-                float ScaleRate=c.getConntent().length()/RecyTalkCoreFrag.TVLEN+1;
-                holder.getContainFrame().getLayoutParams().height=(int) (RecyTalkCoreFrag.FRAMEHEIGHT*ScaleRate);
-                holder.getBackImg().setScaleY(ScaleRate);
+//                float ScaleRate=c.getConntent().length()/RecyTalkCoreFrag.TVLEN+1;
+//                holder.getContainFrame().getLayoutParams().height=(int) (RecyTalkCoreFrag.FRAMEHEIGHT*ScaleRate);
+//                holder.getBackImg().setScaleY(ScaleRate);
 
 
             }

@@ -16,7 +16,7 @@ import java.util.ArrayList;
  */
 
 public class ClientOtherUserDAO implements ClientOtherUsersDAOIF {
-    private static  ArrayList<ClientOtherUser> clientOtherUsers=new ArrayList<>();
+    private static  ArrayList<ClientOtherUser> clientOtherUsers;
 //    static {
 //        startUp();
 //    }
@@ -27,10 +27,12 @@ public class ClientOtherUserDAO implements ClientOtherUsersDAOIF {
         if(ServerCommunicateDAO.getMe().getRelatedComs()==null){
             ServerCommunicateDAO.startUp();
         }
+        clientOtherUsers=new ArrayList<>();
         for(User u:ServerUserDAO.getMe().getServerUserList()){
             ClientOtherUser clientOtherUser=new ClientOtherUser();
             clientOtherUser.setUser(u);
             clientOtherUser.setCommuBetHeAndMe(new ArrayList<Communicate>());
+            clientOtherUsers.add(clientOtherUser);
         }
         for(Communicate c:ServerCommunicateDAO.getMe().getRelatedComs()){
             for(ClientOtherUser cou:clientOtherUsers){
@@ -49,6 +51,9 @@ public class ClientOtherUserDAO implements ClientOtherUsersDAOIF {
     }
     @Override
     public ArrayList<ClientOtherUser> getCLientOtherUsers() {
+        if(clientOtherUsers==null){
+            startUp();
+        }
         return clientOtherUsers;
     }
 

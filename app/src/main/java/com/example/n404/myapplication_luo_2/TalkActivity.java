@@ -2,6 +2,7 @@ package com.example.n404.myapplication_luo_2;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.AppCompatImageButton;
 import android.view.View;
 import android.widget.Button;
 
@@ -12,11 +13,11 @@ import com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag.Recy
  */
 
 public class TalkActivity extends AbstradeActivityForExtend {
-    private Button sendBtn;
+    private AppCompatImageButton sendBtn;
     @Override
     public void onCreate(Bundle savedBundle){
         super.onCreate(savedBundle);
-        sendBtn= (Button)findViewById(R.id.item_btn_send_message);
+        sendBtn= (AppCompatImageButton) findViewById(R.id.item_btn_send_message);
         sendBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

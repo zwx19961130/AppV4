@@ -29,7 +29,7 @@ public class ClientUserDAO implements CLientUserDAOIF{
     }
     public static void reFresh(){
         ArrayList<ClientGood> sonList=new ArrayList<>();
-        ArrayList<ClientGood> mysaleList=new ArrayList<>();
+        ArrayList<ClientGood> mysaleList;
         mysaleList=ClientGoodDAO.getMe().getClientGoodArrayList();
         for(ClientGood cg:mysaleList){
             if(cg.getGood().getSalerId()==1){

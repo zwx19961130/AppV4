@@ -1,16 +1,21 @@
 package com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.n404.myapplication_luo_2.CModel.ClientOtherUser;
 import com.example.n404.myapplication_luo_2.CModel.ClientUser;
 import com.example.n404.myapplication_luo_2.Controller.RecyListFragForExtends;
 import com.example.n404.myapplication_luo_2.DAO.ClientUserDAO;
+import com.example.n404.myapplication_luo_2.GLoabalTools.GLoabalUserSelect;
 import com.example.n404.myapplication_luo_2.R;
+import com.example.n404.myapplication_luo_2.TalkActivity;
 
 /**
  * Created by luo on 16-11-26.
@@ -58,10 +63,12 @@ public class RecyContacterList extends RecyListFragForExtends{
         public void onBindViewHolder(ContacterViewHolder holder, int position) {
             holder.getTvLastTalk().setText(ClientUserDAO.getMe().getCotactersList().get(position).getLastTalk());
             holder.getTvUserNickName().setText(ClientUserDAO.getMe().getCotactersList().get(position).getUser().getNickName());
+            holder.setBoundOtherUser(ClientUserDAO.getMe().getCotactersList().get(position));
         }
 
         @Override
         public int getItemCount() {
+            Log.e("调用了练习列表的适配器，当前联系人列表长度为",""+ClientUserDAO.getMe().getCotactersList().size());
             return ClientUserDAO.getMe().getCotactersList().size();
         }
     }
@@ -71,11 +78,28 @@ public class RecyContacterList extends RecyListFragForExtends{
         private ImageView imgUserIcon;
         private TextView tvUserNickName;
         private TextView tvLastTalk;
+
+        public ClientOtherUser getBoundOtherUser() {
+            return boundOtherUser;
+        }
+
+        public void setBoundOtherUser(ClientOtherUser boundOtherUser) {
+            this.boundOtherUser = boundOtherUser;
+        }
+
+        private ClientOtherUser boundOtherUser;
         public ContacterViewHolder(View itemView) {
             super(itemView);
             imgUserIcon= (ImageView) itemView.findViewById(R.id.item_talk_img_user_icon);
             tvUserNickName= (TextView) itemView.findViewById(R.id.item_talk_tv_user_nickname);
             tvLastTalk= (TextView) itemView.findViewById(R.id.item_talk_tv_last_message);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    GLoabalUserSelect.setClientOtherUser(getBoundOtherUser());
+                    startActivity(new Intent(getContext(), TalkActivity.class));
+                }
+            });
         }
 
         public ImageView getImgUserIcon() {
