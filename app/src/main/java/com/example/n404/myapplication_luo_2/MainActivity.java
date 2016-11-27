@@ -18,6 +18,12 @@ import android.view.MenuItem;
 import com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag.RecyContacterList;
 import com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag.RecyOfGoodListFrag;
 import com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag.RecyOfSaleOutGoodList;
+import com.example.n404.myapplication_luo_2.DAO.ClientGoodDAO;
+import com.example.n404.myapplication_luo_2.DAO.ClientOtherUserDAO;
+import com.example.n404.myapplication_luo_2.DAO.ClientUserDAO;
+import com.example.n404.myapplication_luo_2.DAO.ServerCommunicateDAO;
+import com.example.n404.myapplication_luo_2.DAO.ServerGoodDAO;
+import com.example.n404.myapplication_luo_2.DAO.ServerUserDAO;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -29,6 +35,7 @@ public class MainActivity extends AppCompatActivity
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        //region super
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -50,7 +57,17 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+        //endregion
         //初始化各个fragment，同时以主列表的fragment位设置对象
+        //这个代码块用来强制各个静态代码块的调用
+        ServerGoodDAO.getMe();
+        ServerUserDAO.getMe();
+        ServerCommunicateDAO.getMe();
+        ClientGoodDAO.getMe();
+        ClientUserDAO.getMe();
+        ClientOtherUserDAO.getMe();
+
+        //
         mainListFragmen=new RecyOfGoodListFrag();
         mySaleOutFragment=new RecyOfSaleOutGoodList();
         contactUserFragment=new RecyContacterList();

@@ -1,8 +1,11 @@
 package com.example.n404.myapplication_luo_2.DAO;
 
+import android.util.Log;
+
 import com.example.n404.myapplication_luo_2.DAOIF.ServerGoodDAOIF;
 import com.example.n404.myapplication_luo_2.SModel.Good;
 
+import java.security.acl.LastOwnerException;
 import java.util.ArrayList;
 
 /**
@@ -20,11 +23,14 @@ public class ServerGoodDAO implements ServerGoodDAOIF{
     public static ServerGoodDAO getMe(){
         return serverGoodDAO;
     }
+    static
     {
         startUp();
+        //
+        Log.e("ServerGoodDAO的静态代码块已经执行","servergooddao静态代码块已经执行");
     }
-    @Override
-    public void startUp() {
+
+    public static void  startUp() {
         //启动时，面向本地的查询
         serverGoodList=new ArrayList<>();
         for(int i=1;i<=3;i++){

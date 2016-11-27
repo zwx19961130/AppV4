@@ -66,6 +66,8 @@ public class RecyOfGoodListFrag extends RecyListFragForExtends {
 
         @Override
         public int getItemCount() {
+            //
+            Log.e("主列的碎片已经被调用","它的获取item数量的方法被调用，其数量为"+GLoabalGoodList.getGoodArrayList().size());
             return GLoabalGoodList.getGoodArrayList().size();
         }
     }

@@ -17,10 +17,10 @@ import java.util.ArrayList;
 
 public class ClientOtherUserDAO implements ClientOtherUsersDAOIF {
     private static  ArrayList<ClientOtherUser> clientOtherUsers=new ArrayList<>();
-    {
+    static {
         startUp();
     }
-    public void startUp(){
+    public static void startUp(){
         for(User u:ServerUserDAO.getMe().getServerUserList()){
             ClientOtherUser clientOtherUser=new ClientOtherUser();
             clientOtherUser.setUser(u);

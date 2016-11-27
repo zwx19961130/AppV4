@@ -1,5 +1,6 @@
 package com.example.n404.myapplication_luo_2.DAO;
 
+import com.example.n404.myapplication_luo_2.CModel.ClientGood;
 import com.example.n404.myapplication_luo_2.CModel.ClientUser;
 import com.example.n404.myapplication_luo_2.DAOIF.CLientUserDAOIF;
 import com.example.n404.myapplication_luo_2.SModel.Good;
@@ -14,19 +15,21 @@ import java.util.ArrayList;
 public class ClientUserDAO implements CLientUserDAOIF{
     private  static ClientUser clientUser=new ClientUser();
 
-    @Override
-    public  void startUp(){}
+    static {
+        myStartUp();
+    }
+
     public static void myStartUp() {
         clientUser.setPhoneUser(ServerUserDAO.getMe().getServerUserList().get(0));
         reFresh();
     }
     public static void reFresh(){
-        ArrayList<Good> sonList=new ArrayList<>();
-        ArrayList<Good> mysaleList=new ArrayList<>();
-        mysaleList=ServerGoodDAO.getMe().getServerGoodList();
-        for(Good g:mysaleList){
-            if(g.getSalerId()==1){
-                sonList.add(g);
+        ArrayList<ClientGood> sonList=new ArrayList<>();
+        ArrayList<ClientGood> mysaleList=new ArrayList<>();
+        mysaleList=ClientGoodDAO.getMe().getClientGoodArrayList();
+        for(ClientGood cg:mysaleList){
+            if(cg.getGood().getSalerId()==1){
+                sonList.add(cg);
             }
         }
         //手工添加对话

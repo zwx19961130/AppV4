@@ -21,11 +21,12 @@ public class ServerCommunicateDAO implements ServerComsDAOIF {
         return serverCommunicateDAO;
     }
     private static ArrayList<Communicate> relatedComs;
+    static
     {
         startUp();
     }
-    @Override
-    public void startUp() {
+
+    public static void startUp() {
         //启动的时候，从本地数据库持有所有的记录
         relatedComs=new ArrayList<>();
         for(int i=1;i<=4;i++){

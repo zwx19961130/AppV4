@@ -1,6 +1,7 @@
 package com.example.n404.myapplication_luo_2.GLoabalTools;
 
 import com.example.n404.myapplication_luo_2.CModel.ClientGood;
+import com.example.n404.myapplication_luo_2.DAO.ClientUserDAO;
 
 import java.util.ArrayList;
 
@@ -11,7 +12,7 @@ import java.util.ArrayList;
  */
 
 public class GlobalClientGoodList {
-    public static ArrayList<ClientGood> currentCLientSaleGoodList=new ArrayList<>();
+    public static ArrayList<ClientGood> currentCLientSaleGoodList= ClientUserDAO.getMe().getClientSaleGoodsList();
     public static ArrayList<ClientGood> getList(){
         return  currentCLientSaleGoodList;
     }

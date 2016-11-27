@@ -20,7 +20,7 @@ public class ClientUser {
     public ClientUser(){}
     private static User phoneUser;
         private ArrayList<ClientOtherUser> cotactersList;
-        private ArrayList<Good> clientSaleGoodsList;
+        private ArrayList<ClientGood> clientSaleGoodsList;
 
     public User getPhoneUser() {
         return phoneUser;
@@ -30,11 +30,11 @@ public class ClientUser {
         this.phoneUser = phoneUser;
     }
 
-    public ArrayList<Good> getClientSaleGoodsList() {
+    public ArrayList<ClientGood> getClientSaleGoodsList() {
         return clientSaleGoodsList;
     }
 
-    public void setClientSaleGoodsList(ArrayList<Good> clientSaleGoodsList) {
+    public void setClientSaleGoodsList(ArrayList<ClientGood> clientSaleGoodsList) {
         this.clientSaleGoodsList = clientSaleGoodsList;
     }
 

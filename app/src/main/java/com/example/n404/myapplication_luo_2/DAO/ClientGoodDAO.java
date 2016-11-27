@@ -1,5 +1,7 @@
 package com.example.n404.myapplication_luo_2.DAO;
 
+import android.util.Log;
+
 import com.example.n404.myapplication_luo_2.CModel.ClientGood;
 import com.example.n404.myapplication_luo_2.DAOIF.ClientGoodDAOIF;
 import com.example.n404.myapplication_luo_2.SModel.Good;
@@ -20,17 +22,22 @@ import java.util.ArrayList;
 
 public class ClientGoodDAO implements ClientGoodDAOIF {
     private static ArrayList<ClientGood> clientGoodArrayList=new ArrayList<>();
+    static
+    {
+        startUp();
+        Log.e("CLientGoodDAO","静态代码块已经执行");
+    }
     private static ClientGoodDAO me=new ClientGoodDAO();
     private ClientGoodDAO(){
     }
-    private static  ClientGoodDAO getMe(){
+    public static  ClientGoodDAO getMe(){
         return  me;
     }
     public ArrayList<ClientGood> getClientGoodArrayList(){
         return clientGoodArrayList;
     }
 //region startup
-    public  void startUp(){
+    public static   void startUp(){
         //初始化
         for(Good g:ServerGoodDAO.getMe().getServerGoodList()){
             ClientGood clientGood=new ClientGood();
