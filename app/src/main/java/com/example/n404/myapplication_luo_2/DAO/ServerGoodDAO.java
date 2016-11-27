@@ -20,6 +20,9 @@ public class ServerGoodDAO implements ServerGoodDAOIF{
     public static ServerGoodDAO getMe(){
         return serverGoodDAO;
     }
+    {
+        startUp();
+    }
     @Override
     public void startUp() {
         //启动时，面向本地的查询

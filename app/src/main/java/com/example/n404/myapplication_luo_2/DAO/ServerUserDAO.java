@@ -19,7 +19,9 @@ public class ServerUserDAO implements ServerUserDAOIF {
         return serverUserDAO;
     }
     private static ArrayList<User> allUsers;
-
+    {
+        startUp();
+    }
     public void startUp(){
         //这个方法从数据库中填充这个列表
         allUsers=new ArrayList<>();

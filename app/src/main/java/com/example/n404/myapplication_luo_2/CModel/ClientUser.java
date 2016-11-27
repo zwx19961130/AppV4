@@ -17,7 +17,7 @@ public class ClientUser {
     public static  ClientUser getPhoneClientUser(){
         return  clientUser;
     }
-    private ClientUser(){}
+    public ClientUser(){}
     private static User phoneUser;
         private ArrayList<ClientOtherUser> cotactersList;
         private ArrayList<Good> clientSaleGoodsList;

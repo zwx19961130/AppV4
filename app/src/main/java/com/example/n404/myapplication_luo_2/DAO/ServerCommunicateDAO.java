@@ -21,6 +21,9 @@ public class ServerCommunicateDAO implements ServerComsDAOIF {
         return serverCommunicateDAO;
     }
     private static ArrayList<Communicate> relatedComs;
+    {
+        startUp();
+    }
     @Override
     public void startUp() {
         //启动的时候，从本地数据库持有所有的记录
@@ -66,7 +69,7 @@ public class ServerCommunicateDAO implements ServerComsDAOIF {
     }
 
     @Override
-    public ArrayList<Communicate> getRelatedComs(User phoneUser) {
+    public ArrayList<Communicate> getRelatedComs() {
         //面向客户端程序员，提供获取所有相关的会话记录
         return relatedComs;
     }
