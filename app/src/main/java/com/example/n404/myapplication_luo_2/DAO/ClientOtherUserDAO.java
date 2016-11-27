@@ -17,9 +17,9 @@ import java.util.ArrayList;
 
 public class ClientOtherUserDAO implements ClientOtherUsersDAOIF {
     private static  ArrayList<ClientOtherUser> clientOtherUsers=new ArrayList<>();
-    static {
-        startUp();
-    }
+//    static {
+//        startUp();
+//    }
     public static void startUp(){
         for(User u:ServerUserDAO.getMe().getServerUserList()){
             ClientOtherUser clientOtherUser=new ClientOtherUser();

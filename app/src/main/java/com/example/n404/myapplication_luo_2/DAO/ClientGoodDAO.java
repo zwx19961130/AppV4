@@ -22,11 +22,11 @@ import java.util.ArrayList;
 
 public class ClientGoodDAO implements ClientGoodDAOIF {
     private static ArrayList<ClientGood> clientGoodArrayList=new ArrayList<>();
-    static
-    {
-        startUp();
-        Log.e("CLientGoodDAO","静态代码块已经执行");
-    }
+//    static
+//    {
+//        startUp();
+//        Log.e("CLientGoodDAO","静态代码块已经执行");
+//    }
     private static ClientGoodDAO me=new ClientGoodDAO();
     private ClientGoodDAO(){
     }

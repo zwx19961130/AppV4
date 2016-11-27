@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 import com.example.n404.myapplication_luo_2.CModel.ClientGood;
 import com.example.n404.myapplication_luo_2.Controller.RecyListFragForExtends;
+import com.example.n404.myapplication_luo_2.DAO.ClientGoodDAO;
 import com.example.n404.myapplication_luo_2.DetialActivity;
 import com.example.n404.myapplication_luo_2.GLoabalTools.GLoabalGoodList;
 import com.example.n404.myapplication_luo_2.GLoabalTools.GloabalCurrentGoodSelect;
@@ -68,7 +69,8 @@ public class RecyOfGoodListFrag extends RecyListFragForExtends {
         public int getItemCount() {
             //
             Log.e("主列的碎片已经被调用","它的获取item数量的方法被调用，其数量为"+GLoabalGoodList.getGoodArrayList().size());
-            return GLoabalGoodList.getGoodArrayList().size();
+//            return GLoabalGoodList.getGoodArrayList().size();
+            return ClientGoodDAO.getMe().getClientGoodArrayList().size();
         }
     }
     //endregion 适配器

@@ -15,9 +15,9 @@ import java.util.ArrayList;
 public class ClientUserDAO implements CLientUserDAOIF{
     private  static ClientUser clientUser=new ClientUser();
 
-    static {
-        myStartUp();
-    }
+//    static {
+//        myStartUp();
+//    }
 
     public static void myStartUp() {
         clientUser.setPhoneUser(ServerUserDAO.getMe().getServerUserList().get(0));

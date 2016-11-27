@@ -23,12 +23,12 @@ public class ServerGoodDAO implements ServerGoodDAOIF{
     public static ServerGoodDAO getMe(){
         return serverGoodDAO;
     }
-    static
-    {
-        startUp();
-        //
-        Log.e("ServerGoodDAO的静态代码块已经执行","servergooddao静态代码块已经执行");
-    }
+//    static
+//    {
+//        startUp();
+//        //
+//        Log.e("ServerGoodDAO的静态代码块已经执行","servergooddao静态代码块已经执行");
+//    }
 
     public static void  startUp() {
         //启动时，面向本地的查询
