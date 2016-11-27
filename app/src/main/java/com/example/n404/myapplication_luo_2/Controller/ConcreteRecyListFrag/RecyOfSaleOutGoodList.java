@@ -122,11 +122,11 @@ public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
         private  ClientGood clientGood;
         public GetThreeEsentialMessage(ClientGood clientGood){
             this.clientGood=clientGood;
-            for(ClientPurchase p:clientGood.getPurchaseListToThisGood()){
-                if(p.getsPurchase().getPrice()>maxPrice)
-                    maxPrice=p.getsPurchase().getPrice();
-                if(p.getsPurchase().getPrice()<minPrice)
-                    minPrice=p.getsPurchase().getPrice();
+            for(Purchase p:clientGood.getPurchaseListToThisGood()){
+                if(p.getPrice()>maxPrice)
+                    maxPrice=p.getPrice();
+                if(p.getPrice()<minPrice)
+                    minPrice=p.getPrice();
             }
         }
         public  int getBuyerNum(){

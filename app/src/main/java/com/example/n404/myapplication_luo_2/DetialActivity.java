@@ -10,11 +10,11 @@ import com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag.Publ
  */
 
 public class DetialActivity extends AbstradeActivityForExtend {
+
     @Override
     public int giveMeLayoutRes() {
         return R.layout.activity_detials;
     }
-
     @Override
     public Fragment giveMeCoreFrag() {
         return new PublicConcreRecyPurListFrag();

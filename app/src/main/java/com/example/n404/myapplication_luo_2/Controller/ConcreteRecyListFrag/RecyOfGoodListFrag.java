@@ -1,5 +1,6 @@
 package com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -9,9 +10,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.example.n404.myapplication_luo_2.CModel.ClientGood;
 import com.example.n404.myapplication_luo_2.Controller.RecyListFragForExtends;
+import com.example.n404.myapplication_luo_2.DetialActivity;
 import com.example.n404.myapplication_luo_2.GLoabalTools.GLoabalGoodList;
+import com.example.n404.myapplication_luo_2.GLoabalTools.GloabalCurrentGoodSelect;
 import com.example.n404.myapplication_luo_2.R;
+import com.example.n404.myapplication_luo_2.SModel.Good;
 
 /**
  * Created by luo on 16-11-26.
@@ -48,13 +53,6 @@ public class RecyOfGoodListFrag extends RecyListFragForExtends {
             //交付用来填充一个item的视图资源文件
             View v= LayoutInflater.from(getContext()).inflate(getItemLayoutRes(),parent,false);
             //在这里设置相应事件，跳转逻辑
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //跳转到竞价activity
-                    Log.e("跳转到竞价活动的方法体尚未重写","!");
-                }
-            });
             return new GoodListItemViewHolder(v);
         }
 
@@ -73,9 +71,17 @@ public class RecyOfGoodListFrag extends RecyListFragForExtends {
     }
     //endregion 适配器
     //region 视图容器
-    private  class GoodListItemViewHolder extends  RecyclerView.ViewHolder {
+    private  class GoodListItemViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener {
         private LinearLayout mainLayout;
+        public ClientGood getClientGood() {
+            return good;
+        }
 
+        public void setGood(ClientGood good) {
+            this.good = good;
+        }
+
+        private ClientGood good;
         private ImageView imageView;
         private TextView goodNameTv;
         private  TextView goodPriceTv;
@@ -127,6 +133,14 @@ public class RecyOfGoodListFrag extends RecyListFragForExtends {
 
         public void setImageView(ImageView imageView) {
             this.imageView = imageView;
+        }
+
+        @Override
+        public void onClick(View view) {
+            GloabalCurrentGoodSelect.SetCurrentGood(getClientGood());
+            //这里才是跳转逻辑，响应事件
+            Intent intentToDetials=new Intent(getContext(), DetialActivity.class);
+            startActivity(intentToDetials);
         }
         //endregion 折叠了设置器和获取器
     }

@@ -1,6 +1,7 @@
 package com.example.n404.myapplication_luo_2.GLoabalTools;
 
 import com.example.n404.myapplication_luo_2.CModel.ClientGood;
+import com.example.n404.myapplication_luo_2.SModel.Good;
 
 /**
  * Created by luo on 16-11-26.

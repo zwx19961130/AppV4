@@ -13,10 +13,10 @@ import java.util.ArrayList;
  */
 
 public class ClientUser {
-    private  static ClientUser clientUser=new ClientUser();
-    public static  ClientUser getPhoneClientUser(){
-        return  clientUser;
-    }
+//    private  static ClientUser clientUser=new ClientUser();
+//    public static  ClientUser getPhoneClientUser(){
+//        return  clientUser;
+//    }
     public ClientUser(){}
     private static User phoneUser;
         private ArrayList<ClientOtherUser> cotactersList;

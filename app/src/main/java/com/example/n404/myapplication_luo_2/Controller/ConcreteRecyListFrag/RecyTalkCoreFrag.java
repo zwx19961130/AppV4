@@ -10,6 +10,7 @@ import android.widget.TextView;
 
 import com.example.n404.myapplication_luo_2.CModel.ClientUser;
 import com.example.n404.myapplication_luo_2.Controller.RecyListFragForExtends;
+import com.example.n404.myapplication_luo_2.DAO.ClientUserDAO;
 import com.example.n404.myapplication_luo_2.GLoabalTools.GLoabalUserSelect;
 import com.example.n404.myapplication_luo_2.R;
 import com.example.n404.myapplication_luo_2.SModel.Communicate;
@@ -79,7 +80,7 @@ public class RecyTalkCoreFrag extends RecyListFragForExtends {
             // 这里可能是复杂性非常高的地段，小心！
             Communicate c= GLoabalUserSelect.getClientOtherUser().getCommuBetHeAndMe().get(position);
             //拿到了一条对话记录，判断说话方
-            if(c.getSpeakerId()== ClientUser.getPhoneClientUser().getPhoneUser().getStuId()){
+            if(c.getSpeakerId()== ClientUserDAO.getMe().getPhoneUser().getStuId()){
                 //用户是听者，图片采用左图
                 holder.getBackImg().setImageResource(R.drawable.talk_pop_4_l);
                 //根据长度做伸缩

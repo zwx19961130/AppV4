@@ -13,12 +13,14 @@ import java.util.ArrayList;
 
 public class ClientUserDAO implements CLientUserDAOIF{
     private  static ClientUser clientUser=new ClientUser();
-    @Override
-    public void startUp() {
-        clientUser.setPhoneUser(ServerUserDAO.getMe().getServerUserList().get(0));
 
+    @Override
+    public  void startUp(){}
+    public static void myStartUp() {
+        clientUser.setPhoneUser(ServerUserDAO.getMe().getServerUserList().get(0));
+        reFresh();
     }
-    public void reFresh(){
+    public static void reFresh(){
         ArrayList<Good> sonList=new ArrayList<>();
         ArrayList<Good> mysaleList=new ArrayList<>();
         mysaleList=ServerGoodDAO.getMe().getServerGoodList();
@@ -27,10 +29,18 @@ public class ClientUserDAO implements CLientUserDAOIF{
                 sonList.add(g);
             }
         }
+        //手工添加对话
+
         clientUser.setClientSaleGoodsList(sonList);
+        clientUser.setCotactersList(ClientOtherUserDAO.getMe().getCLientOtherUsers());
         //这个地方需要持有其它客户端其它用户，稍等
     }
-
+    public static ClientUser getMe(){
+        if(clientUser.getCotactersList()==null||clientUser.getClientSaleGoodsList()==null){
+            myStartUp();
+        }
+        return  clientUser;
+    }
     @Override
     public String getCLientUserNickName() {
         return null;

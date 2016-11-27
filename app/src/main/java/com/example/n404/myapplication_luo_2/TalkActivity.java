@@ -1,6 +1,9 @@
 package com.example.n404.myapplication_luo_2;
 
+import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.view.View;
+import android.widget.Button;
 
 import com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag.RecyTalkCoreFrag;
 
@@ -9,6 +12,18 @@ import com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag.Recy
  */
 
 public class TalkActivity extends AbstradeActivityForExtend {
+    private Button sendBtn;
+    @Override
+    public void onCreate(Bundle savedBundle){
+        super.onCreate(savedBundle);
+        sendBtn= (Button)findViewById(R.id.item_btn_send_message);
+        sendBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                //点击发送消息的按钮
+            }
+        });
+    }
     @Override
     public int giveMeLayoutRes() {
         return R.layout.activity_talk;

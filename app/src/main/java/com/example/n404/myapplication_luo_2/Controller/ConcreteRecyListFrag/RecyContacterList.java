@@ -9,6 +9,7 @@ import android.widget.TextView;
 
 import com.example.n404.myapplication_luo_2.CModel.ClientUser;
 import com.example.n404.myapplication_luo_2.Controller.RecyListFragForExtends;
+import com.example.n404.myapplication_luo_2.DAO.ClientUserDAO;
 import com.example.n404.myapplication_luo_2.R;
 
 /**
@@ -55,13 +56,13 @@ public class RecyContacterList extends RecyListFragForExtends{
 
         @Override
         public void onBindViewHolder(ContacterViewHolder holder, int position) {
-            holder.getTvLastTalk().setText(ClientUser.getPhoneClientUser().getCotactersList().get(position).getLastTalk());
-            holder.getTvUserNickName().setText(ClientUser.getPhoneClientUser().getCotactersList().get(position).getUser().getNickName());
+            holder.getTvLastTalk().setText(ClientUserDAO.getMe().getCotactersList().get(position).getLastTalk());
+            holder.getTvUserNickName().setText(ClientUserDAO.getMe().getCotactersList().get(position).getUser().getNickName());
         }
 
         @Override
         public int getItemCount() {
-            return ClientUser.getPhoneClientUser().getCotactersList().size();
+            return ClientUserDAO.getMe().getCotactersList().size();
         }
     }
     //endregion adapter

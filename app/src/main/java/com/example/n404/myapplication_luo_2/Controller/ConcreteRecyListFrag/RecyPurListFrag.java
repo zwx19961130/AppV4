@@ -13,13 +13,17 @@ import com.example.n404.myapplication_luo_2.Controller.RecyListFragForExtends;
 import com.example.n404.myapplication_luo_2.GLoabalTools.GLobalNotLinerVauleCacul;
 import com.example.n404.myapplication_luo_2.GLoabalTools.GloabalCurrentGoodSelect;
 import com.example.n404.myapplication_luo_2.R;
+import com.example.n404.myapplication_luo_2.SModel.Good;
 import com.example.n404.myapplication_luo_2.SModel.User;
 
 /**
  * Created by luo on 16-11-26.
  * 这个碎片需要完成提供竞价列表的视图，它需要一个针对某商品的竞价信息列表,这个碎片需要知道当前查看的商品
+ *      这个类作废！
  */
 public abstract class RecyPurListFrag extends RecyListFragForExtends{
+    //region 作废
+    /*
     //region res
     @Override
     public RecyclerView.Adapter getAdapter() {
@@ -41,6 +45,8 @@ public abstract class RecyPurListFrag extends RecyListFragForExtends{
     //endregion res
     //region viewholder
     private class  PurchaseViewHolder extends  RecyclerView.ViewHolder{
+        private User userBound;
+
         private TextView tvNickName;
         private TextView tvExtra;
         private ProgressBar pbPurchasePrice;
@@ -80,7 +86,7 @@ public abstract class RecyPurListFrag extends RecyListFragForExtends{
     //region adpater
     private  class PurchaseItemAdapter extends  RecyclerView.Adapter<PurchaseViewHolder>{
 
-        private ClientGood currentClientGood= GloabalCurrentGoodSelect.getClientGood();
+        private Good currentClientGood= GloabalCurrentGoodSelect.getClientGood();
         //这个地方就是插入跳转逻辑的地方
         @Override
         public PurchaseViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -91,20 +97,24 @@ public abstract class RecyPurListFrag extends RecyListFragForExtends{
 
         @Override
         public void onBindViewHolder(PurchaseViewHolder holder, int position) {
-
-            holder.getTvNickName().setText(currentClientGood.getPurchaseListToThisGood().get(position).getBuyerName());
-            holder.getTvExtra().setText(currentClientGood.getPurchaseListToThisGood().get(position).getsPurchase().getExtraMessage());
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-                holder.getPbPurchasePrice().setProgress(GLobalNotLinerVauleCacul.toNormal(currentClientGood.getPurchaseListToThisGood().get(position).getDeltaPrice()),true);
-            }else{
-                holder.getPbPurchasePrice().setProgress(GLobalNotLinerVauleCacul.toNormal(currentClientGood.getPurchaseListToThisGood().get(position).getDeltaPrice()));
-            }
+//
+//            holder.getTvNickName().setText(currentClientGood.getPurchaseListToThisGood().get(position).getSalerId());
+//            holder.getTvExtra().setText(currentClientGood.getPurchaseListToThisGood().get(position).getExtraMessage());
+//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+//                holder.getPbPurchasePrice().setProgress(GLobalNotLinerVauleCacul.toNormal(currentClientGood.getPurchaseListToThisGood().get(position).getPrice()),true);
+//            }else{
+//                holder.getPbPurchasePrice().setProgress(GLobalNotLinerVauleCacul.toNormal(currentClientGood.getPurchaseListToThisGood().get(position).getPrice()));
+//            }
+//        }
         }
 
         @Override
         public int getItemCount() {
-            return currentClientGood.getPurchaseListToThisGood().size();
+//            return currentClientGood.getPurchaseListToThisGood().size();
+        return 0;
         }
     }
     //endregion adpater
+    */
+    //endregion
 }
