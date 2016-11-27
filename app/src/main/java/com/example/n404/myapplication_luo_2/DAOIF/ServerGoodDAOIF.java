@@ -15,6 +15,6 @@ public interface ServerGoodDAOIF {
     public void startUp();
     public void trySync();
     public void addGoodToServer(Good good);
-    public ArrayList<Good> getServerGoodList();
+    public  ArrayList<Good> getServerGoodList();
     public  void saleOutOneGood(Good good);
 }

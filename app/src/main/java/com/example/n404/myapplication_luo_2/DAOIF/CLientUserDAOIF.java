@@ -10,6 +10,7 @@ package com.example.n404.myapplication_luo_2.DAOIF;
  */
 
 public interface CLientUserDAOIF {
+    public void startUp();
     public  String getCLientUserNickName();
     public  void setClientUserNickName(String newNickName);
 }

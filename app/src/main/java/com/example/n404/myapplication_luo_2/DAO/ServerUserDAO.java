@@ -13,11 +13,25 @@ import java.util.ArrayList;
  */
 
 public class ServerUserDAO implements ServerUserDAOIF {
+    private static ServerUserDAO  serverUserDAO=new ServerUserDAO();
+    private ServerUserDAO(){};
+    public static ServerUserDAO getMe(){
+        return serverUserDAO;
+    }
     private static ArrayList<User> allUsers;
 
     public void startUp(){
         //这个方法从数据库中填充这个列表
-
+        allUsers=new ArrayList<>();
+        for(int i=1;i<=3;i++){
+            User u=new User();
+            u.setLegalFlag(0);
+            u.setNickName("user"+i);
+            u.setStuId(i);
+            u.setPhone("110"+i);
+            //填充
+            allUsers.add(u);
+        }
     }
 
 
@@ -32,8 +46,8 @@ public class ServerUserDAO implements ServerUserDAOIF {
     }
 
     @Override
-    public ArrayList<User> getServerUserList() {
+    public   ArrayList<User> getServerUserList() {
         //面向客户端的程序员，提供核心资源userlist
-        return null;
+        return allUsers;
     }
 }

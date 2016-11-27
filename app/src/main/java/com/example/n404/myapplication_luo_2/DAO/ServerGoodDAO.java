@@ -15,10 +15,26 @@ import java.util.ArrayList;
 
 public class ServerGoodDAO implements ServerGoodDAOIF{
     private static ArrayList<Good> serverGoodList;
+    private static ServerGoodDAO serverGoodDAO=new ServerGoodDAO();
+    private ServerGoodDAO(){}
+    public static ServerGoodDAO getMe(){
+        return serverGoodDAO;
+    }
     @Override
     public void startUp() {
         //启动时，面向本地的查询
-
+        serverGoodList=new ArrayList<>();
+        for(int i=1;i<=3;i++){
+            Good g=new Good();
+            g.setGid(i);
+            g.setGoodName("goodName"+i);
+            g.setExtraMessage("extra "+i);
+            g.setPicResUrl("");
+            g.setPrice(i);
+            g.setSaleOut(false);
+            g.setSalerId(i);
+            serverGoodList.add(g);
+        }
         //
     }
 
@@ -35,7 +51,7 @@ public class ServerGoodDAO implements ServerGoodDAOIF{
     @Override
     public ArrayList<Good> getServerGoodList() {
         //面向外人的提供核心资源
-        return null;
+        return serverGoodList;
     }
 
     @Override

@@ -14,8 +14,8 @@ import java.util.ArrayList;
  *
  */
 public interface ServerComsDAOIF {
-    public void startUp();
+    public  void startUp();
     public void trySync();
-    public  void addOneCom(Communicate communicate);
-    public ArrayList<Communicate> getRelatedComs(User phoneUser);
+    public void addOneCom(Communicate communicate);
+    public  ArrayList<Communicate> getRelatedComs(User phoneUser);
 }

@@ -8,6 +8,16 @@ import java.util.Date;
 
 public class Communicate {
     public static  int currentMaxId;
+
+    public int getCid() {
+        return cid;
+    }
+
+    public void setCid(int cid) {
+        this.cid = cid;
+    }
+
+    public  int cid;
     public  int speakerId;
     public  int listenerId;
     public  String conntent;
