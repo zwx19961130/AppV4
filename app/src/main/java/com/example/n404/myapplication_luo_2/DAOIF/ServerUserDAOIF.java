@@ -12,6 +12,8 @@ import java.util.ArrayList;
  */
 
 public interface ServerUserDAOIF {
+    public void startUp();
+    public void trySync();
     public  void addOneUser(User user);
     public ArrayList<User> getServerUserList();
 }
