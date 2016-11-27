@@ -13,13 +13,17 @@ import java.util.ArrayList;
  */
 
 public class ClientUserDAO implements CLientUserDAOIF{
-    private  static ClientUser clientUser=new ClientUser();
+    private  static ClientUser clientUser;
 
 //    static {
 //        myStartUp();
 //    }
 
     public static void myStartUp() {
+        clientUser=new ClientUser();
+        if(ServerUserDAO.getMe().getServerUserList().size()==0){
+            ServerUserDAO.startUp();
+        }
         clientUser.setPhoneUser(ServerUserDAO.getMe().getServerUserList().get(0));
         reFresh();
     }

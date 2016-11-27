@@ -21,7 +21,7 @@ import java.util.ArrayList;
  */
 
 public class ClientGoodDAO implements ClientGoodDAOIF {
-    private static ArrayList<ClientGood> clientGoodArrayList=new ArrayList<>();
+    private static ArrayList<ClientGood> clientGoodArrayList;
 //    static
 //    {
 //        startUp();
@@ -39,6 +39,10 @@ public class ClientGoodDAO implements ClientGoodDAOIF {
 //region startup
     public static   void startUp(){
         //初始化
+        clientGoodArrayList=new ArrayList<>();
+        if(ServerGoodDAO.getMe().getServerGoodList()==null) {
+            ServerGoodDAO.startUp();
+        }
         for(Good g:ServerGoodDAO.getMe().getServerGoodList()){
             ClientGood clientGood=new ClientGood();
             clientGood.setGood(g);
@@ -52,6 +56,7 @@ public class ClientGoodDAO implements ClientGoodDAOIF {
                         p.setGoodId(1);
                         p.setPid(i);
                         p.setPrice(i);
+                        purchaseArrayList.add(p);
                     }
                     break;
                 case 2:
@@ -62,6 +67,7 @@ public class ClientGoodDAO implements ClientGoodDAOIF {
                         p.setGoodId(2);
                         p.setPid(i);
                         p.setPrice(i);
+                        purchaseArrayList.add(p);
                     }
                 break;
                 case 3:
@@ -72,12 +78,14 @@ public class ClientGoodDAO implements ClientGoodDAOIF {
                         p.setGoodId(3);
                         p.setPid(i);
                         p.setPrice(i);
+                        purchaseArrayList.add(p);
                     }
                 break;
                 default:
                     break;
             }
             clientGood.setPurchaseListToThisGood(purchaseArrayList);
+            clientGoodArrayList.add(clientGood);
         }
     }
 //endregion

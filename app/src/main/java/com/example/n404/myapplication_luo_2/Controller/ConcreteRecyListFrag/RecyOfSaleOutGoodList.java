@@ -1,5 +1,6 @@
 package com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag;
 
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,10 +11,13 @@ import android.widget.ProgressBar;
 import com.example.n404.myapplication_luo_2.CModel.ClientGood;
 import com.example.n404.myapplication_luo_2.CModel.ClientPurchase;
 import com.example.n404.myapplication_luo_2.Controller.RecyListFragForExtends;
+import com.example.n404.myapplication_luo_2.DAO.ClientUserDAO;
 import com.example.n404.myapplication_luo_2.GLoabalTools.GLobalNotLinerVauleCacul;
+import com.example.n404.myapplication_luo_2.GLoabalTools.GloabalCurrentGoodSelect;
 import com.example.n404.myapplication_luo_2.GLoabalTools.GlobalClientGoodList;
 import com.example.n404.myapplication_luo_2.R;
 import com.example.n404.myapplication_luo_2.SModel.Purchase;
+import com.example.n404.myapplication_luo_2.TradeActivity;
 
 /**
  * Created by luo on 16-11-26.
@@ -36,13 +40,22 @@ public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
 
     @Override
     public int getItemLayoutRes() {
-        return R.layout.item_goodlist_layout;
+        return R.layout.item_sale_out_goodlist_layout;
     }
     //endregion layoutRes
     //region viewholer
     private class SaleOutGoodViewHolder extends  RecyclerView.ViewHolder{
         private ProgressBar pbNum;
 
+        public ClientGood getBoundGood() {
+            return boundGood;
+        }
+
+        public void setBoundGood(ClientGood boundGood) {
+            this.boundGood = boundGood;
+        }
+
+        private ClientGood boundGood;
         public ProgressBar getPbMaxPrice() {
             return pbMaxPrice;
         }
@@ -84,6 +97,14 @@ public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
             pbNum= (ProgressBar) itemView.findViewById(R.id.pb_buyer_num);
             pbMaxPrice= (ProgressBar) itemView.findViewById(R.id.pb_max_price_add);
             pbMinPrice= (ProgressBar) itemView.findViewById(R.id.pb_min_add_price);
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    GloabalCurrentGoodSelect.SetCurrentGood(getBoundGood());
+                    startActivity(new Intent(getContext(), TradeActivity.class));
+                }
+            });
+
         }
 
     }
@@ -93,12 +114,6 @@ public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
         @Override
         public SaleOutGoodViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
             View v= LayoutInflater.from(getContext()).inflate(getItemLayoutRes(),parent,false);
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    //在这里点击的时候，跳转到交易界面，trade activity
-                }
-            });
             return new SaleOutGoodViewHolder(v);
         }
         @Override
@@ -107,10 +122,11 @@ public class RecyOfSaleOutGoodList extends RecyListFragForExtends {
            holder.getPbNum().setProgress(gt.getBuyerNum());
            holder.getPbMaxPrice().setProgress(GLobalNotLinerVauleCacul.toNormal( gt.getMaxPrice()));
            holder.getPbMinPrice().setProgress(GLobalNotLinerVauleCacul.toNormal(gt.getMinPrice()));
+            holder.setBoundGood(ClientUserDAO.getMe().getClientSaleGoodsList().get(position));
         }
         @Override
         public int getItemCount() {
-            return GlobalClientGoodList.getList().size();
+            return ClientUserDAO.getMe().getClientSaleGoodsList().size();
         }
     }
     //endregion adapter

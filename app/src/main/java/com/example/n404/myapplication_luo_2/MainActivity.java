@@ -60,9 +60,9 @@ public class MainActivity extends AppCompatActivity
         //endregion
         //初始化各个fragment，同时以主列表的fragment位设置对象
         //这个代码块用来强制各个静态代码块的调用
-        ServerUserDAO.startUp();
-        ServerGoodDAO.startUp();
-        ServerCommunicateDAO.startUp();
+//        ServerUserDAO.startUp();
+//        ServerGoodDAO.startUp();
+//        ServerCommunicateDAO.startUp();
         ClientGoodDAO.startUp();
         ClientOtherUserDAO.startUp();
         ClientUserDAO.myStartUp();

@@ -3,6 +3,7 @@ package com.example.n404.myapplication_luo_2.Controller.ConcreteRecyListFrag;
 import android.content.Intent;
 import android.os.Build;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,6 +14,7 @@ import com.example.n404.myapplication_luo_2.CModel.ClientGood;
 import com.example.n404.myapplication_luo_2.CModel.ClientOtherUser;
 import com.example.n404.myapplication_luo_2.CModel.ClientUser;
 import com.example.n404.myapplication_luo_2.Controller.RecyListFragForExtends;
+import com.example.n404.myapplication_luo_2.DAO.ClientGoodDAO;
 import com.example.n404.myapplication_luo_2.DAO.ClientOtherUserDAO;
 import com.example.n404.myapplication_luo_2.DAO.ClientUserDAO;
 import com.example.n404.myapplication_luo_2.GLoabalTools.GLoabalUserSelect;
@@ -132,6 +134,7 @@ public class PublicConcreRecyPurListFrag extends RecyListFragForExtends {
 
         @Override
         public int getItemCount() {
+            Log.e("具体商品的竞价列表的大小为",""+currentClientGood.getPurchaseListToThisGood().size());
             return currentClientGood.getPurchaseListToThisGood().size();
         }
     }

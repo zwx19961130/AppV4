@@ -21,6 +21,12 @@ public class ClientOtherUserDAO implements ClientOtherUsersDAOIF {
 //        startUp();
 //    }
     public static void startUp(){
+        if(ServerUserDAO.getMe().getServerUserList()==null){
+            ServerUserDAO.startUp();
+        }
+        if(ServerCommunicateDAO.getMe().getRelatedComs()==null){
+            ServerCommunicateDAO.startUp();
+        }
         for(User u:ServerUserDAO.getMe().getServerUserList()){
             ClientOtherUser clientOtherUser=new ClientOtherUser();
             clientOtherUser.setUser(u);
